@@ -1,0 +1,27 @@
+{% extends 'Summer_APP/base.html' %}
+
+{% block title %}Живые обои - Everlasting Summer{% endblock %}
+
+{% block content %}
+<div class="container">
+    <section class="content-section">
+        <h2 class="h2_class_background">Живые обои</h2>
+        <div class="video-list">
+            {% for wallpaper in wallpapers %}
+                <div class="video-container">
+                    <h3>{{ wallpaper.name }}</h3>
+                    <video controls>
+                        <source src="{{ wallpaper.video.url }}" type="video/mp4">
+                        Ваш браузер не поддерживает видео элементы.
+                    </video>
+{#                {% if request.user.is_superuser %}#}
+{#                    <a href="{% url 'wallpaper_delete' wallpaper_id=wallpaper.id %}">Del</a>#}
+{#                {% endif %}#}
+                </div>
+            {% empty %}
+                <p>Нет доступных живых обоев.</p>
+            {% endfor %}
+        </div>
+    </section>
+</div>
+{% endblock %}

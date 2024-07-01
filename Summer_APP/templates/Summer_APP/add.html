@@ -1,0 +1,12 @@
+{% extends 'Summer_APP/base.html' %}
+
+{% block content %}
+<div class="add-content-page">
+    <h1>Добро пожаловать на страницу добавления!</h1>
+    <p>Внимание тут только добавление!</p>
+    <p><a href="{% url 'create_character' %}">Добавить Персонажа</a></p>
+    <p><a href="{% url 'create_wallpaper' %}">Добавить Живые Обои</a></p>
+    <p><a href="{% url 'create_music' %}">Добавить Саундтреки</a></p>
+    <p><a href="{% url 'create_background' %}">Добавить Фоны из игры</a></p>
+</div>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'Summer_APP/base.html' %}
+
+{% block title %}Персонажи - Everlasting Summer{% endblock %}
+
+{% block content %}
+<div class="container">
+    <section class="content-section">
+        <h2 class="h2_class">Персонажи</h2>
+        <div class="characters-list">
+            {% for character in characters %}
+                <div class="character">
+                    <img src="{{ character.image.url }}" alt="{{ character.name }}">
+                    <h3>{{ character.name }}</h3>
+                    <p>{{ character.description }}</p>
+                </div>
+            {% empty %}
+                <p>Нет доступных персонажей.</p>
+            {% endfor %}
+        </div>
+    </section>
+</div>
+{% endblock %}

@@ -1,0 +1,9 @@
+{% extends 'Summer_APP/base.html' %}
+
+{% block content %}
+    <form class="add-form" action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button>Добавить!</button>
+    </form>
+{% endblock %}

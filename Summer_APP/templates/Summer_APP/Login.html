@@ -1,0 +1,9 @@
+{% extends 'Summer_APP/base.html' %}
+{% block login %}
+<form action="" method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button>Log in</button>
+    <a href="{% url 'register' %}">Тык на регистрацию!</a>
+</form>
+{% endblock %}

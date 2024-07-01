@@ -1,0 +1,25 @@
+{% extends 'Summer_APP/base.html' %}
+
+{% block title %}MP3 плеер - Everlasting Summer{% endblock %}
+
+{% block content %}
+<section class="content-section">
+    <h2 class="h2_class_music">MP3 плеер</h2>
+    <div class="music-tracks">
+        {% for track in tracks %}
+        <div class="track">
+            <h3>{{ track.title }}</h3>
+            <audio controls>
+                <source src="{{ track.audio_file.url }}" type="audio/mp3">
+                Ваш браузер не поддерживает аудио элементы.
+            </audio>
+{#         {% if request.user.is_superuser %}#}
+{#                    <button><a href="">Удалить</a></button>#}
+{#                {% endif %}#}
+        </div>
+        {% empty %}
+        <p>Нет доступных треков.</p>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}

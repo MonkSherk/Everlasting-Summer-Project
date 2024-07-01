@@ -1,0 +1,8 @@
+{% extends 'Summer_APP/base.html' %}
+{% block register %}
+<form method="POST" action="">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button>Sign Up</button>
+</form>
+{% endblock %}

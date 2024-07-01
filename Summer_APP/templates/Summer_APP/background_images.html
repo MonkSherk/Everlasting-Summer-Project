@@ -1,0 +1,21 @@
+{% extends 'Summer_APP/base.html' %}
+
+{% block title %}Фоны из Новеллы - Everlasting Summer{% endblock %}
+
+{% block content %}
+<div class="container">
+    <section class="content-section">
+        <h2 class="h2_class_wallpaper">Фоны из Новеллы</h2>
+        <div class="background-images-list">
+            {% for background in backgrounds %}
+                <div class="background-image">
+                    <img src="{{ background.image.url }}" alt="{{ background.name }}">
+                    <p>{{ background.name }}</p>
+                </div>
+            {% empty %}
+                <p>Нет доступных фонов.</p>
+            {% endfor %}
+        </div>
+    </section>
+</div>
+{% endblock %}

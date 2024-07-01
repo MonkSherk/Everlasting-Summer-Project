@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Everlasting Summer{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <nav class="nav-bar">
+        <ul>
+            <li><a href="{% url 'creation_story' %}">История создания</a></li>
+            {% if request.user.is_authenticated %}
+                 <li><a href="{% url 'characters' %}">Персонажи</a></li>
+                <li><a href="{% url 'background_images' %}">Фоны из Новеллы</a></li>
+                <li><a href="{% url 'music_player' %}">MP3 плеер</a></li>
+                <li><a href="{% url 'wallpaper_video' %}">Живые обои</a></li>
+                <li><a href="{% url 'logout' %}">Разлогиниться ;(</a></li>
+                {% else %}
+                <li style="color: white">Перед тем как полностью окунуться в Лето Сферу надо <a href="{% url 'login' %}">зарегестрироваться!</a></li>
+            {% endif %}
+        {% if request.user.is_superuser %}
+                    <li><a href="{% url 'add_content' %}">Добавление</a></li>
+        {% endif %}
+        </ul>
+    </nav>
+
+    {% block add %}
+    <div class="container">
+        <div class="content">
+
+        </div>
+    </div>
+    {% endblock %}
+    <div class="content">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+    <div class="wallpapers">
+        {% block wallpaper %}
+
+        {% endblock %}
+    </div>
+
+    <div>
+        {% block edit %}
+        {% endblock %}
+    </div>
+
+    {% block login %}
+    {% endblock %}
+
+    {% block register %}
+    {% endblock %}
+</body>
+</html>
