@@ -14,7 +14,7 @@
             {% if request.user.is_authenticated %}
                  <li><a href="{% url 'characters' %}">Персонажи</a></li>
                 <li><a href="{% url 'background_images' %}">Фоны из Новеллы</a></li>
-                <li><a href="{% url 'music_player' %}">MP3 плеер</a></li>
+                <li><a href="{% url 'music_player' %}">Саундтреки</a></li>
                 <li><a href="{% url 'wallpaper_video' %}">Живые обои</a></li>
                 <li><a href="{% url 'logout' %}">Разлогиниться ;(</a></li>
                 {% else %}
